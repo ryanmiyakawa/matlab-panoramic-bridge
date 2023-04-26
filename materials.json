@@ -1,0 +1,77 @@
+{
+    "IMO_Si":
+        {
+            "n": 0.999,
+            "k": 0.00183,
+            "colorName": "pink"
+        },
+    "IMO_MoSi2":
+        {
+            "n": 0.9693,
+            "k": 0.00433,
+            "colorName": "magenta"
+        },
+    "IMO_Mo":
+        {
+            "n": 0.9238,
+            "k": 0.00644,
+            "colorName": "gray"
+        },
+    "IMO_BA_intermix":
+        {
+            "n": 0.9099,
+            "k": 0.01547,
+            "colorName": "orange"
+        },
+    "IMO_MLCap":
+        {
+            "n": 0.8863,
+            "k": 0.01706,
+            "colorName": "green"
+        },
+    "IMO_BA_Abs_bulk":
+        {
+            "n": 0.9483,
+            "k": 0.0329,
+            "colorName": "blue"
+        },
+    "IMO_BA_Abs_top":
+        {
+            "n": 0.9545,
+            "k": 0.025,
+            "colorName": "dark_gray"
+        },
+
+
+    "IMO_PSM_MLCap":
+        {
+            "n": 0.877,
+            "k": 0.028,
+            "colorName": "green"
+        },
+    "IMO_PSM_Abs_bot":
+        {
+            "n": 0.893,
+            "k": 0.016,
+            "colorName": "cyan"
+        },
+    "IMO_PSM_Abs_mid":
+        {
+            "n": 0.948,
+            "k": 0.033,
+            "colorName": "pink"
+        },
+    "IMO_PSM_Abs_top":
+        {
+            "n": 0.955,
+            "k": 0.025,
+            "colorName": "yellow"
+        },
+
+    "IMO_LTEM_Substrate"   :
+        {
+            "n": 0.978,
+            "k": 0.0108,
+            "colorName": "dark_gray"
+        }
+}
