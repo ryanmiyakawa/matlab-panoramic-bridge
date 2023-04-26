@@ -5,9 +5,9 @@
 % The PanoramicBridge class is a MATLAB interface to the Panoramic simulation software's API. The class provides methods to load, save, and simulate Panoramic simulations, as well as set and get simulation variables and data.
 % 
 % Properties
-%     jarPath (constant string): The file path to the Panoramic MATLAB API jar file.
-%     apiPath (constant string): The file path to the Panoramic API directory.
-%     simulationPath (constant string): The file path to the directory containing Panoramic simulation files.
+%     jarPath (string): The file path to the Panoramic MATLAB API jar file.
+%     apiPath (string): The file path to the Panoramic API directory.
+%     simulationPath (string): The file path to the directory containing Panoramic simulation files.
 %     simResultHandle (handle): The handle to the Panoramic simulation output data.
 %     simResultIndices (array): The indices of the output data series in the simResultHandle.
 %     simResultHeaders (cell array): The headers of the output data series in the simResultHandle.
