@@ -415,16 +415,12 @@ classdef panoramicBridge < handle
             end
             fprintf('Successfully got data "%s".\n', dataName)
         end
-    end
-    
-    methods(Static)
         
-        function init()
+        function init(this)
             disp('Initializing Panoramic Bridge')
-            mpm addpath
             
-            javaaddpath(panoramicBridge.jarPath);
-            addpath(panoramicBridge.apiPath);
+            javaaddpath(this.jarPath);
+            addpath(this.apiPath);
             
             if connectPanoramic()~=0
                 disp('connection failed!');
@@ -433,6 +429,11 @@ classdef panoramicBridge < handle
             
             disp('complete!');
         end
+    end
+    
+    methods(Static)
+        
+        
         
         % Loads materials a specified in materials.json
         function materials = loadMaterials()
