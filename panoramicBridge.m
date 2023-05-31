@@ -109,10 +109,11 @@ classdef panoramicBridge < handle
         function destroyDataSeries(~)
            destroyAllDataSeries(); 
         end
-        function lSuccess = loadSim(~, simName)
+
+        function lSuccess = loadSim(obj, simName)
             disp('Loading Simulation')
             try
-                loadSetup(fullfile(panoramicBridge.simulationPath, [simName, '.sim']))
+                loadSetup(fullfile(obj.simulationPath, [simName, '.sim']))
             catch
                 fprintf('Failed to load simulation "%s".  Make sure this path exists \n', simName);
                 lSuccess = false;
@@ -123,10 +124,10 @@ classdef panoramicBridge < handle
         end
        
         
-        function saveSim(~, simName)
+        function saveSim(obj, simName)
             disp('Saving Simulation')
             try
-                saveSetup([panoramicBridge.simulationPath '\' simName])
+                saveSetup([obj.simulationPath '\' simName])
             catch
                 fprintf('Failed to save simulation "%s".\n', simName);
                 return
