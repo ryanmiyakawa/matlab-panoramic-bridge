@@ -138,7 +138,7 @@ classdef panoramicBridge < handle
         function lSuccess = loadTOBOutput(this, simName)
             disp('Loading TOB output')
             try
-                hOutputHandle = loadOutput(fullfile(panoramicBridge.simulationPath, [simName, '.tob']));
+                hOutputHandle = loadOutput(fullfile(this.simulationPath, [simName, '.tob']));
                 this.simResultHandle = hOutputHandle;
                 
             catch
@@ -288,7 +288,7 @@ classdef panoramicBridge < handle
             end
             
             data = {};
-            dataHandles = getDataSeriesHandlesForOutput(this.imgResultHandle);
+            dataHandles = getDataSeriesHandlesForOutput(this.imgResultHandle(1));
             
             % get domain info:
             try
