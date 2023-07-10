@@ -416,6 +416,52 @@ classdef panoramicBridge < handle
             end
             fprintf('Successfully got data "%s".\n', dataName)
         end
+
+        function data = getDataSeriesArbHeader(this, dataName, varargin)
+            if isempty(varargin)
+                coherenceGroup = 0;
+                compString = sprintf('cgrp=%d.0', coherenceGroup);
+            elseif length(varargin)/2 ~= round(length(varargin)/2)
+                fprintf('Expected an even number of varargin corresponding to key-value. Returning.')
+                return
+            else
+%                 compString = '';
+                for ii = 1:2:length(varargin)
+                    if ii == 1
+                        compString = sprintf('%s=%s',varargin{ii},varargin{ii+1});
+                    else
+                        compString = [compString,sprintf(', %s=%s',varargin{ii},varargin{ii+1})];
+                    end
+                end
+            end
+            disp('Getting Data')
+            
+            
+            data = {};
+            datIdx = [];
+            for ii = 1:size(this.simResultHeaders, 2)
+                headerCell1 = this.simResultHeaders(1,ii);
+                headerCell2 = this.simResultHeaders(2,ii);
+                if contains(headerCell1{1},dataName) && strcmp(headerCell2{1}, compString)
+                    datIdx(end+1) = this.simResultIndices(ii); %#ok<AGROW>
+                end
+            end
+            if isempty(datIdx)
+                fprintf('Failed to get data "%s" with info string "%s".\n', dataName,compString);
+                return
+            end
+            
+            
+            try
+                for ii = 1:length(datIdx)
+                    data{end + 1} = getDataSeriesData(datIdx(ii)); %#ok<AGROW>
+                end
+            catch
+                fprintf('Failed to get data "%s".\n', dataName);
+                return
+            end
+            fprintf('Successfully got data "%s".\n', dataName)
+        end
         
         function init(this)
             disp('Initializing Panoramic Bridge')
